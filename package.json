@@ -1,0 +1,25 @@
+{
+  "name": "express-regex-search",
+  "version": "1.0.0",
+  "description": "Simple API service to search district, town and state with regex",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iravishah/express-regex-search.git"
+  },
+  "keywords": [
+    "express",
+    "nodejs",
+    "mongodb",
+    "api"
+  ],
+  "author": "Ravi Shah <rvshah1992@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iravishah/express-regex-search/issues"
+  },
+  "homepage": "https://github.com/iravishah/express-regex-search#readme"
+}
