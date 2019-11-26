@@ -1,0 +1,34 @@
+{
+  "m200": {
+    "response": {
+      "message": "OK",
+      "code": 200
+    },
+    "status": 200,
+    "description": "ok reply"
+  },
+  "m101": {
+    "response": {
+      "error": "admin Authentication Failed",
+      "code": 101
+    },
+    "status": 401,
+    "description": "user failed to provide right admin authorization"
+  },
+  "m102": {
+    "response": {
+      "error": "error while processing your request, please try again later",
+      "code": 102
+    },
+    "status": 400,
+    "description": "some issue with mongodb"
+  },
+  "m103": {
+    "response": {
+      "error": "invalid email id",
+      "code": 103
+    },
+    "status": 400,
+    "description": "email format is wrong"
+  }
+}

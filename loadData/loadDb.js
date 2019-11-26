@@ -1,23 +1,52 @@
 const { readFileSync } = require('fs');
+const mongoose = require('mongoose');
 
-let data = readFileSync('/home/ravs@eur.ad.sag/Ravi/personal/github/express-regex-search/loadData/city_list.csv', 'utf-8');
-data = data.split('\n');
-data = data.splice(1, data.length);
-data = data.map((ele) => {
-  ele = ele.split(',');
-  return {
-    sr_no: ele[0],
-    town: ele[1],
-    Urban_status: ele[2],
-    State_code: ele[3],
-    State: ele[4],
-    District_code: ele[5],
-    District: ele[6]
-  };
+const loadConfig = require('../lib/config');
+const Logger = require('../logger/logger');
+
+const config = loadConfig()
+logger = global.logger = new Logger(config);
+
+const { connect } = require('../db/connect');
+
+require('../models/state');
+
+const State = mongoose.model('State');
+
+connect(config.mongo, () => {
+  bulkInsert(start());
 });
 
-function bulkInsert(data) {
-  // code to create record in db
+function start() {
+  let data = readFileSync(`${__dirname}/city_list.csv`, 'utf-8');
+  data = data.split('\n');
+  data = data.splice(1, data.length);
+  return data.map((ele) => {
+    ele = ele.split(',');
+    return {
+      sr_no: ele[0],
+      town: ele[1],
+      urban_status: ele[2],
+      state_code: ele[3],
+      state: ele[4],
+      district_code: ele[5],
+      district: ele[6]
+    };
+  });
 }
 
-bulkInsert(data);
+function bulkInsert(data) {
+  State.deleteMany({})
+    .then(() => {
+      return State.insertMany(data);
+    })
+    .then((docs) => {
+      if (!docs || !docs.length) {
+        logger.log(`no docs`);
+        return;
+      }
+      logger.log('docs added!!');
+      process.exit(0);
+    })
+    .catch(e => logger.log(`error while inserting multiple records :: ${err}`));
+}
