@@ -8,21 +8,21 @@ module.exports = () => {
   const utility = require('../lib/utils');
   const state = require('../controller/state');
 
-  router.get('/ping',
+  router.get('/v1.0/ping',
     utility.ping
   );
 
-  router.get('/state',
+  router.get('/v1.0/state',
     utility.authenicate,
     state.listState
   );
 
-  router.get('/town',
+  router.get('/v1.0/town',
     utility.authenicate,
     state.listTown
   );
 
-  router.get('/district',
+  router.get('/v1.0/district',
     utility.authenicate,
     state.listDistrict
   );

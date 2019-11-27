@@ -39,3 +39,17 @@ npm run test
 ```sh
 admin_key: test
 ```
+
+### API calls
+```sh
+url: http://localhost:8081
+
+resource: /v1.0/state
+query: { q : 'Kera' }
+
+resource: /v1.0/town
+query: { q : 'Phule' }
+
+resource: /v1.0/district
+query: { q: 'Jaip' }
+```
