@@ -44,12 +44,15 @@ admin_key: test
 ```sh
 url: http://localhost:8081
 
+method: get
 resource: /v1.0/state
 query: { q : 'Kera' }
 
+method: get
 resource: /v1.0/town
 query: { q : 'Phule' }
 
+method: get
 resource: /v1.0/district
 query: { q: 'Jaip' }
 ```
