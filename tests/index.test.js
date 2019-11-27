@@ -17,7 +17,7 @@ function load() {
       })
   })
 
-  require('./user.test');
+  require('./state.test');
 }
 
 module.exports = {

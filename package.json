@@ -4,7 +4,8 @@
   "description": "Simple API service to search district, town and state with regex",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "export NODE_ENV=test && mocha --exit -R spec tests/boot.test.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -26,8 +27,14 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "helmet": "^3.21.2",
+    "lodash": "^4.17.15",
     "mongo-uri-builder": "^2.0.0",
     "mongoose": "^5.7.12",
     "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.2",
+    "mockgoose-fix": "^7.3.6",
+    "should": "^13.2.3"
   }
 }

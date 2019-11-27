@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { merge } = require('lodash');
 
 require('../models/state');
 
@@ -14,6 +15,7 @@ const { wait } = require('../lib/utils');
  * @returns promise
  */
 async function list(query = {}, select = {}, opts = {}) {
+  opts = merge(opts, { lean: true });
   return await wait(State.find, State, query, select, opts);
 }
 

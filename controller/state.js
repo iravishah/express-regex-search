@@ -1,10 +1,17 @@
-const _ = require('lodash');
+const { get } = require('lodash');
 
 const m = require('../responses/responses.json');
 
 const { reply, capitalize } = require('../lib/utils');
 const { list } = require('../db/mongoUtils');
-
+/**
+ *
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ * @returns
+ */
 async function listState(req, res, next) {
   const query = { state: { $regex: new RegExp(req.query.q), $options: 'i' } };
 
@@ -17,7 +24,14 @@ async function listState(req, res, next) {
   }
   res.status(200).json(data);
 }
-
+/**
+ *
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ * @returns
+ */
 async function listTown(req, res, next) {
   const query = { town: { $regex: new RegExp(req.query.q), $options: 'i' } };
 
@@ -30,11 +44,18 @@ async function listTown(req, res, next) {
   }
   res.status(200).json(data);
 }
-
+/**
+ *
+ *
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ * @returns
+ */
 async function listDistrict(req, res, next) {
   const query = { district: { $regex: new RegExp(req.query.q), $options: 'i' } };
 
-  let [err, data] = await list(query, { town: 1, urban_status: 1, state_code: 1, state: 1, district_code: 1, district: 1, _id: -1 }, { lean: true });
+  let [err, data] = await list(query, { town: 1, urban_status: 1, state_code: 1, state: 1, district_code: 1, district: 1, _id: -1 });
   if (err) {
     return reply(res, m.m102);
   }

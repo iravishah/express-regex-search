@@ -9,6 +9,8 @@ const Logger = require('./logger/logger');
 config = global.config = loadConfig()
 logger = global.logger = new Logger(config);
 
+global.appRoot = __dirname;
+
 const routes = require('./routes/routes');
 const { connect } = require('./db/connect');
 

@@ -1,5 +1,5 @@
 {
-  "port": 8080,
+  "port": 8082,
   "logFile": "./logs/app.log",
   "mongo": {
     "replicas": [
@@ -18,7 +18,8 @@
       "poolSize": 8,
       "w": "majority",
       "connectTimeoutMS": 20000,
-      "useNewUrlParser": true
+      "useNewUrlParser": true,
+      "useUnifiedTopology": true
     }
   },
   "adminKey": "test"
