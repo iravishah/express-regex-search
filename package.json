@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "export NODE_ENV=test && mocha --exit -R spec tests/boot.test.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "load": "node loadData/loadDb.js"
   },
   "repository": {
     "type": "git",

@@ -15,22 +15,27 @@ switched to db expressapi
 Successfully added user: { "user" : "admin", "roles" : [ "readWrite", "dbAdmin" ] }
 ```
 
-### Step 3: Admin key to access resources
+### Step 3: Load database with data
 ```sh
-admin_key: test
+npm run load
 ```
 
-### Step 3: Install the dependencies
+### Step 4: Install the dependencies
 ```sh
 npm install
 ```
-### Step 4: Run
+### Step 5: Run
 ```sh
 npm run start
 ```
 
-### Step 5: Testcases
+### Step 6: Testcases
 To run testcases
 ``` sh
 npm run test
+```
+
+### Step 7: Admin key to access resources
+```sh
+admin_key: test
 ```
