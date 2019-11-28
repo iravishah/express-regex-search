@@ -35,7 +35,7 @@ async function listState(req, res, next) {
 async function listTown(req, res, next) {
   const query = { town: { $regex: new RegExp(req.query.q), $options: 'i' } };
 
-  const [err, data] = await list(query, { town: 1, state: 1, district: 1, _id: -1 });
+  const [err, data] = await list(query, { town: 1, state: 1, district: 1, _id: 0 });
   if (err) {
     return reply(res, m.m102);
   }
@@ -55,7 +55,7 @@ async function listTown(req, res, next) {
 async function listDistrict(req, res, next) {
   const query = { district: { $regex: new RegExp(req.query.q), $options: 'i' } };
 
-  let [err, data] = await list(query, { town: 1, urban_status: 1, state_code: 1, state: 1, district_code: 1, district: 1, _id: -1 });
+  let [err, data] = await list(query, { town: 1, urban_status: 1, state_code: 1, state: 1, district_code: 1, district: 1, _id: 0 });
   if (err) {
     return reply(res, m.m102);
   }
